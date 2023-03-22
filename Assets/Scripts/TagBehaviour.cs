@@ -8,9 +8,10 @@ public class TagBehaviour : MonoBehaviour
     public bool IsTagger;
     public int SpawnDelay = 3;
     public float ScoreMutliplier = 3;
+    //[HideInInspector]
     public float Score;
     public GameObject TagMarker;
-    public GameObject Expolsion;
+    public GameObject Explosion;
 
     private void Update()
     {
@@ -22,22 +23,15 @@ public class TagBehaviour : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player"))
             return;
 
-        //IsTagger = !IsTagger;
-        //TagMarker.setActive(!IsTagger);
-        if (IsTagger == true)
-        {
-            IsTagger = false;
-            TagMarker.SetActive(false);
-        }
-        else
-        {
-            IsTagger = true;
-            TagMarker.SetActive(true);
-        }
+        TagMarker.SetActive(!IsTagger);
+        IsTagger = !IsTagger;
 
         if (IsTagger == true)
         {
-            Instantiate(Expolsion, transform.position, transform.rotation);
+            GameObject instantiate = Instantiate(Explosion, transform.position, transform.rotation);
+            ParticleSystem system = instantiate.GetComponent<ParticleSystem>();
+            Material mat = gameObject.GetComponent<MeshRenderer>().material;
+            system.startColor = mat.color;
             Invoke("Respawn", SpawnDelay);
             gameObject.SetActive(false);
         }

@@ -343,7 +343,8 @@ MonoBehaviour:
   ScoreMutliplier: 3
   Score: 0
   TagMarker: {fileID: 6693006434990271569}
-  Expolsion: {fileID: 6284705442121747307, guid: 1aa28be549dade943b5566b1a0497506, type: 3}
+  Explosion: {fileID: 6284705442121747307, guid: 1aa28be549dade943b5566b1a0497506, type: 3}
+  mat: {fileID: 2100000, guid: d4db621f951bc4e40a87dacab11b8551, type: 2}
 --- !u!135 &-8086030177374148446
 SphereCollider:
   m_ObjectHideFlags: 0

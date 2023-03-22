@@ -33,7 +33,7 @@ public class MovementBehaviour : MonoBehaviour
         if (!GroundCollider.IsGrounded)
             acceleration /= AirAccelerationReduction;
 
-            _rb.AddForce(_moveDirection * acceleration * Time.deltaTime,ForceMode.VelocityChange);
+        _rb.AddForce(_moveDirection * acceleration * Time.deltaTime,ForceMode.VelocityChange);
 
         if (_rb.velocity.magnitude > MaxSpeed)
         {
